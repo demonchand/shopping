@@ -1,9 +1,19 @@
 <h1>Your Cart</h1>
-<ul>
+<table>
   <% for i in @cart.line_items %>
-  <li><%= i.quantity %> &times; <%= i.product.title %></li>
+  <tr>
+    <td><%= i.quantity %> &times;</td>
+    <td> <%= i.product.title %> </td>
+    <td class="item_price" ><%= number_to_currency(i.total_price) %></td>
+  </tr>
   <% end %>
-</ul>
-<%= link_to "Continue shopping", root_url %>
-<%= button_to "Empty Cart", @cart, :method => :delete, :confirm => "Are sure
+  <tr class="total_line" >
+    <td colspan="2" >Total</td>
+    <td class="total_cell" ><%= number_to_currency(@cart.total_price) %></td>
+  </tr>
+</table>
+
+<%= link_to "Continue shopping", root_url %> | 
+<%= link_to "empty", @cart, :method => :delete, :confirm => "Are you sure" %>
+<%#= button_to "Empty Cart", @cart, :method => :delete, :confirm => "Are sure
 want to" %>
