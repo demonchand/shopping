@@ -1,11 +1,7 @@
 <h1>Your Cart</h1>
 <table>
   <% for i in @cart.line_items %>
-  <tr>
-    <td><%= i.quantity %> &times;</td>
-    <td> <%= i.product.title %> </td>
-    <td class="item_price" ><%= number_to_currency(i.total_price) %></td>
-  </tr>
+<%= render (@cart.line_items) %>
   <% end %>
   <tr class="total_line" >
     <td colspan="2" >Total</td>
