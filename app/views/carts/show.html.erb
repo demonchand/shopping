@@ -1,7 +1,9 @@
 <h1>Your Cart</h1>
 <ul>
   <% for i in @cart.line_items %>
-  <li><%= i.product.title %></li>
+  <li><%= i.quantity %> &times; <%= i.product.title %></li>
   <% end %>
 </ul>
 <%= link_to "Continue shopping", root_url %>
+<%= button_to "Empty Cart", @cart, :method => :delete, :confirm => "Are sure
+want to" %>
