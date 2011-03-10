@@ -9,4 +9,10 @@ class ProductTest < Test::Unit::TestCase
  #   it { should validate_presence_of(:title) }
  # end
 end
+#class ProductTest < ActiveSupport::TestCase
+  # Replace this with your real tests.
+#  test "the truth" do
+#    assert true
+#  end
+#end
 
