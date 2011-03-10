@@ -1,13 +1,14 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: 
-  description: Its is not good to see you
-  image_url: rails.jpg
+  title: RailsSpace
+  description: "Its is not good to see you"
+  image_url: "rails.jpg"
   price: 11.55
-
-#two:
- # title: MyString
- # description: MyText
- # image_url: MyString
- # price: 9.99
+  
+two:
+  title: Rails Testing
+  description: testing
+  image_url: rails_testing.jpg
+  price: 853.99
+    
