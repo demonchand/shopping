@@ -2,8 +2,8 @@
 
 one:
   title: RailsSpace
-  description: "Its is not good to see you"
-  image_url: "rails.jpg"
+  description: Its is not good to see you
+  image_url: rails.jpg
   price: 11.55
   
 two:

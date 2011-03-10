@@ -32,5 +32,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl'
-  gem 'shoulda-context'
+#  gem 'shoulda-context'
 end
