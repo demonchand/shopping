@@ -9,6 +9,10 @@ Shopping::Application.routes.draw do
 
   resources :products
   root :to => "store#index"
+
+  match 'orders/checkout' => 'orders#checkout'
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
