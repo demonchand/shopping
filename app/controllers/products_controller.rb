@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
+  before_filter :check_and_load, :only => [:index, :show, :new, :edit]
   def index
     @products = Product.all
-    check_and_load
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +14,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.xml
   def show
-    check_and_load
     @product = Product.find(params[:id])
 
     respond_to do |format|
@@ -26,7 +25,6 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.xml
   def new
-    check_and_load
     @product = Product.new
 
     respond_to do |format|
@@ -37,7 +35,6 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    check_and_load
     @product = Product.find(params[:id])
   end
 
