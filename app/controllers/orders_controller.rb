@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   def checkout
     setup_response = gateway.setup_purchase(1000,
                                             :ip                => request.remote_ip,
-                                            :return_url        => new_order_url, #url_for(:action => 'confirm', :only_path => false),
+#                                            :return_url        => orders_confirm_url, #url_for(:action => 'confirm', :only_path => false),
+                                            :return_url        => url_for(:action => 'confirm', :only_path => false),        
                                             :cancel_return_url => root_url#url_for(:action => 'index', :only_path => false)
                                             )
     redirect_to gateway.redirect_url_for(setup_response.token)
@@ -94,7 +95,7 @@ class OrdersController < ApplicationController
     end
   end
 
- def confirm
+  def confirm
     redirect_to :action => 'index' unless params[:token]
     details_response = gateway.details_for(params[:token])
     if !details_response.success?
@@ -103,7 +104,7 @@ class OrdersController < ApplicationController
       return
     end
     @address = details_response.address
-  end
+   end
   
   def complete
     purchase = gateway.purchase(1000,

@@ -10,9 +10,9 @@ Shopping::Application.routes.draw do
   resources :products
   root :to => "store#index"
 
-  match 'orders/checkout' => 'orders#checkout'
+#  match 'orders/checkout' => 'orders#checkout'
   match 'checkout_new_order_path' => "orders#checkout"
-  match "orders/confirm" => "orders#confirm"
+  match 'confirm_path' => 'orders#confirm'
 
   
   # The priority is based upon order of creation:
