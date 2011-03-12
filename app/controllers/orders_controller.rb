@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   
   include ActiveMerchant::Billing
   def checkout
-    setup_response = gateway.setup_purchase(1000,
+    setup_response = gateway.setup_purchase((current_cart.total_price * 100),
                                             :ip                => request.remote_ip,
 #                                            :return_url        => orders_confirm_url, #url_for(:action => 'confirm', :only_path => false),
                                             :return_url        => url_for(:action => 'confirm', :only_path => false),        
@@ -107,7 +107,7 @@ class OrdersController < ApplicationController
    end
   
   def complete
-    purchase = gateway.purchase(1000,
+    purchase = gateway.purchase((current_cart.total_price * 100),
                                 :ip       => request.remote_ip,
                                 :payer_id => params[:payer_id],
                                 :token    => params[:token]
