@@ -112,6 +112,7 @@ class OrdersController < ApplicationController
                                 :payer_id => params[:payer_id],
                                 :token    => params[:token]
                                 )
+    current_cart.destroy
     
     if !purchase.success?
       @message = purchase.message
